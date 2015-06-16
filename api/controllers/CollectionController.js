@@ -8,7 +8,7 @@
 module.exports = {
 	
 	restricted: function (req, res) {
-		return res.ok("hit collection/restricted brap")
+		return res.ok("hit collection/restricted")
 	},
 
 	open: function (req, res) {
