@@ -12,7 +12,7 @@ module.exports = {
 	},
 
 	open: function (req, res) {
-		return res.ok("hit collection/open");
+		return res.ok("hit collection/open testing");
 	}
 
 };
