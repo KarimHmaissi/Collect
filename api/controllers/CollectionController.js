@@ -8,7 +8,7 @@
 module.exports = {
 	
 	restricted: function (req, res) {
-		return res.ok("hit collection/restricted")
+		return res.ok("hit collection/restricted boyakahshaw")
 	},
 
 	open: function (req, res) {
