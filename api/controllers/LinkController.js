@@ -24,15 +24,8 @@ module.exports = {
 		res.json(JSON.stringify({something: "something"}));
 	},
 
-	submit: function (req, res) {
-		sails.log("hit /link/submit");
-		sails.log(req.params.all().url);	
-		sails.log(req.session.user);	
-		sails.log(req.session);	
-	},
-
 	//crawl link and send results in response
-	dave: function (req, res) {
+	submit: function (req, res) {
 
 		//validate input
 		if(typeof req.params.all().url === "string") {
