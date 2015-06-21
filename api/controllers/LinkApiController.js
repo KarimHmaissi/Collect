@@ -27,8 +27,7 @@ module.exports = {
 	//crawl link and send results in response
 	submit: function (req, res) {
 
-		res.json({success: "link/submit"});
-/*		//validate input
+		//validate input
 		if(typeof req.params.all().url === "string") {
 			var url = req.params.all().url;
 
@@ -54,16 +53,17 @@ module.exports = {
 						}
 						
 					});
-				*/}
+				}
 			};
 
 			//check if link has already been crawled from cache
 			//TEMP
-			// LinkUrl.find().where({url: url}).exec(handler);
+			LinkUrl.find().where({url: url}).exec(handler);
 
-		// } else {
-		// 	res.json({error: "Not a valid url"});
-		// }
+
+		} else {
+			res.badRequest("Not a valid url");
+		}
 		
 
 	}
