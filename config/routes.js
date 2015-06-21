@@ -50,7 +50,7 @@ module.exports.routes = {
   "get /api/v1/collection/get/:id": "CollectionController.get",
   "post /api/v1/collection/submit": "CollectionController.submit",
 
-  "get /api/v1/l/get/:id": "LinkUrlController.get",
-  "get /api/v1/l/submit/:url": "LinkUrlController.submit"
+  "get /api/v1/link/get/:id": "LinkController.get",
+  "get /api/v1/link/submit/:url": "LinkController.submit"
 
 };
