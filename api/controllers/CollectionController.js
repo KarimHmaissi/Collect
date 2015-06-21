@@ -7,13 +7,31 @@
 
 module.exports = {
 	
-	restricted: function (req, res) {
-		return res.ok("hit collection/restricted")
+	index: function (req, res) {
+
+		res.json(json.Stringify({route: "index"}));
 	},
 
-	open: function (req, res) {
-		return res.ok("hit collection/open testing");
+	get: function (req, res) {
+		if(type req.params.all().id === "string") {
+			var id = req.params.all().id;
+
+			var handler = function () {
+				if(!err) {
+					res.json(collection);
+				} else {
+					res.badRequest("Could not find a collection: " + err);
+				}		
+			};
+
+			Collection.find({id: id}).exec(handler);
+		}	
+	},
+
+	submit: function (req, res) {
+		res.json(json.Stringify({route: "submit"}));	
 	}
+
 
 };
 

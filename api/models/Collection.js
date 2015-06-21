@@ -1,14 +1,39 @@
-/**
-* Collection.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+var Collection = {
+	schema: true,
 
-module.exports = {
+	attributes: {
+		baseScore: {type: "integer"},
+		upvotes: {type: "integer"},
+		downvotes: {type: "integer"},
+		sticky: {type: "boolean"},
 
-  attributes: {
+		postedBy: {model: "User"},
 
-  }
-};
 
+
+
+		links: {
+			collection: "LinkUrl",
+			via: "memberOf"
+		},
+
+
+
+		upvoters: {
+			collection: "User",
+			via: "upvoted"
+		},
+
+		downvoters: {
+			collection: "User",
+			via: "downvoted"
+		},
+
+		// tags: {
+		// 	collection: "tags"
+		// }
+
+	}
+}
+
+module.exports = Collection;

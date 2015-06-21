@@ -29,8 +29,14 @@ module.exports.policies = {
   '*': true,
 
   CollectionController: {
-    restricted: ["hasJsonWebToken"],
-    open: true
+    submit: ["hasJsonWebToken"],
+    index: true,
+    get: true
+  },
+
+  LinkApiController: {
+    get: true,
+    crawl: ["hasJsonWebToken"]
   }
 
   /***************************************************************************

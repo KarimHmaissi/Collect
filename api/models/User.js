@@ -9,10 +9,17 @@
 module.exports = {
 
   attributes: require('waterlock').models.user.attributes({
-    
-    /* e.g.
-    nickname: 'string'
-    */
+
+    upvoted: {
+    	collection: "Collection",
+    	via: "upvoters"
+    },
+
+
+    downvoted: {
+    	collection: "Collection",
+    	via: "downvoters"
+    }
     
   }),
   
