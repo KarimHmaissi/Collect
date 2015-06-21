@@ -9,7 +9,7 @@ module.exports = {
 	
 	index: function (req, res) {
 
-		res.json(JSON.Stringify({route: "index"}));
+		res.json(JSON.stringify({route: "index"}));
 	},
 
 	get: function (req, res) {
@@ -29,7 +29,7 @@ module.exports = {
 	},
 
 	submit: function (req, res) {
-		res.json(JSON.Stringify({route: "submit"}));	
+		res.json(JSON.stringify({route: "submit"}));	
 	}
 
 
