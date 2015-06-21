@@ -36,7 +36,7 @@ module.exports.policies = {
 
   LinkApiController: {
     get: true,
-    crawl: ["hasJsonWebToken"]
+    submit: ["hasJsonWebToken"]
   }
 
   /***************************************************************************
