@@ -1,5 +1,5 @@
 var Url = require("url");
-var WebCrawler = require("WebCrawler");
+var WebCrawler = require("webCrawler");
 
 module.exports = {
 
