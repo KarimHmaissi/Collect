@@ -21,7 +21,7 @@ module.exports = {
 		// 	res.badRequest("Could not find a link with id: " + id);
 		// }
 
-		res.json(JSON.stringify({something: something}));
+		res.json(JSON.stringify({something: "something"}));
 	},
 
 	//crawl link and send results in response
