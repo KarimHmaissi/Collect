@@ -20,7 +20,7 @@ module.exports = {
 			var id = req.params.all().id;
 
 			var handler = function (err, collection) {
-				if(!err) {
+				if(!err && collection.length > 0) {
 					res.json(collection);
 				} else {
 					res.badRequest("Could not find a collection: " + err);
