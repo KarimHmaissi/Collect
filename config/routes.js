@@ -32,9 +32,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  // '/': {
+  //   view: 'homepage'
+  // }
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,12 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+  "get /api/v1/collection/index": "CollectionController.index",
+  "get /api/v1/collection/get/:id": "CollectionController.get",
+  "post /api/v1/collection/submit": "CollectionController.submit",
+
+  "get /api/v1/link/get/:id": "LinkUrlController.get",
+  "post /api/v1/link/submit": "LinkUrlController.submit",
 
 };

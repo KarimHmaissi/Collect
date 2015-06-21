@@ -25,7 +25,7 @@ module.exports = {
 	},
 
 	//crawl link and send results in response
-	crawl: function (req, res) {
+	submit: function (req, res) {
 
 		//validate input
 		if(typeof req.params.all().url === "string") {
