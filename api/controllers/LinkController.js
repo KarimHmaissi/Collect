@@ -27,6 +27,9 @@ module.exports = {
 	//crawl link and send results in response
 	submit: function (req, res) {
 
+		sails.log("hit /login/submit");
+		sails.log("having a look at the link you submitted");
+
 		//validate input
 		if(typeof req.params.all().url === "string") {
 			var url = req.params.all().url;
