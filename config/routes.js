@@ -51,6 +51,6 @@ module.exports.routes = {
   "post /api/v1/collection/submit": "CollectionController.submit",
 
   "get /api/v1/link/get/:id": "LinkUrlController.get",
-  "/api/v1/link/submit/:url": "LinkUrlController.submit",
+  "/api/v1/link/submit/:url": "LinkUrlController.submit"
 
 };
