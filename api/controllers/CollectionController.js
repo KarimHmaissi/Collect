@@ -13,7 +13,7 @@ module.exports = {
 	},
 
 	get: function (req, res) {
-		if(type req.params.all().id === "string") {
+		if(typeof req.params.all().id === "string") {
 			var id = req.params.all().id;
 
 			var handler = function () {
