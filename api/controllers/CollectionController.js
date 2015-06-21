@@ -13,6 +13,9 @@ module.exports = {
 	},
 
 	get: function (req, res) {
+
+		sails.log("collection/get");
+
 		if(typeof req.params.all().id === "string") {
 			var id = req.params.all().id;
 
