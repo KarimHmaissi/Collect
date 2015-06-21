@@ -59,11 +59,11 @@ module.exports = {
 
 			//check if link has already been crawled from cache
 			//TEMP
-			LinkUrl.find().where({url: url}).exec(handler);
+			// LinkUrl.find().where({url: url}).exec(handler);
 
-		} else {
-			res.json({error: "Not a valid url"});
-		}
+		// } else {
+		// 	res.json({error: "Not a valid url"});
+		// }
 		
 
 	}
