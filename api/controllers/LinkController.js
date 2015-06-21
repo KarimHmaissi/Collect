@@ -27,7 +27,8 @@ module.exports = {
 	submit: function (req, res) {
 		sails.log("hit /link/submit");
 		sails.log(req.params.all().url);	
-		sails.log(req.user);	
+		sails.log(req.session.user);	
+		sails.log(req.session);	
 	},
 
 	//crawl link and send results in response
@@ -49,7 +50,7 @@ module.exports = {
 					res.json(result);
 				} else {
 					//if not crawl link and add details to cache and DB
-					WebCrawler.crawl(url, req.user.id).then(function (linkDetails) {
+					WebCrawler.crawl(url, req.session.user.id).then(function (linkDetails) {
 
 						//return response
 						if(linkDetails.err) {
