@@ -16,7 +16,7 @@ module.exports = {
 		if(typeof req.params.all().id === "string") {
 			var id = req.params.all().id;
 
-			var handler = function () {
+			var handler = function (err) {
 				if(!err) {
 					res.json(collection);
 				} else {
