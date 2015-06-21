@@ -34,7 +34,7 @@ module.exports.policies = {
     get: true
   },
 
-  LinkApiController: {
+  LinkController: {
     get: true,
     submit: ["hasJsonWebToken"]
   }
