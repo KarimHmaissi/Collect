@@ -19,7 +19,7 @@ var Collection = {
 		groups: {
 			collection: "Group",
 			via: "ownedBy"
-		}
+		},
 
 
 		upvoters: {
