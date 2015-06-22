@@ -39,7 +39,7 @@ module.exports = {
 			.where({id: id})
 			.populate("links")
 			.then(function (collection) {
-				LinkUrl.find({
+				var linkUrls = LinkUrl.find({
 					id: _.pluck(collection.links, "linkUrl")
 				}).then(function (linkUrls) {
 					return linkUrls;
