@@ -27,7 +27,7 @@ module.exports = {
 				}		
 			};
 
-			Collection.find({id: id}).exec(handler);
+			Collection.find({id: id}).populate("links").exec(handler);
 		}	
 	},
 
@@ -36,7 +36,28 @@ module.exports = {
 
 		sails.log(req.body);
 
-		res.json({route: "submit", resJson: req.body});	
+
+		//add validation of incoming json here
+		var collect = req.body;
+
+		var newCollection = {
+			title: collect.title,
+			description: collect.description,
+			postedBy: req.session.user.id
+		};
+
+		var handler = function (err, collection) {
+			if(!err && collection) {
+				collection.links.add(collect.links);
+				collection.save(function (err, collection) {
+					res.json(collection);
+				});
+			}	
+		};
+
+		Collection.create(newCollection).exec(handler);
+
+		// res.json({route: "submit", resJson: req.body});	
 	},
 
 
@@ -55,3 +76,19 @@ module.exports = {
 
 };
 
+
+
+// {
+//     "title": "Title of collection",
+//     "description": "Description of collection",
+    
+//     "links": [
+//       {
+//         "title": "title of link added by user",
+//         "description": "description added by user",
+//         "group": "misc",
+//         "linkUrl": 1
+//       }
+//     ]
+ 
+// }

@@ -19,9 +19,9 @@ var Collection = {
 		// },
 
 
-		groups: {
-			collection: "Group",
-			via: "ownedBy"
+		links: {
+			collection: "LinkMeta",
+			via: "memberOf"
 		},
 
 
