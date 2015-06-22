@@ -3,6 +3,9 @@ var LinkMeta = {
 
 	attributes: {
 
+		title: {type: "string" defaultsTo; ""},
+		description: {type: "string", defaultsTo: ""},
+
 		linkUrl: {
 			model: "linkUrl"
 		},

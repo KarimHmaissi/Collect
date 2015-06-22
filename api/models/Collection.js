@@ -2,15 +2,15 @@ var Collection = {
 	schema: true,
 
 	attributes: {
-		baseScore: {type: "integer"},
-		upvotes: {type: "integer"},
-		downvotes: {type: "integer"},
-		sticky: {type: "boolean"},
+		baseScore: {type: "integer", defaultsTo: 0},
+		upvotes: {type: "integer", defaultsTo: 0},
+		downvotes: {type: "integer", defaultsTo: 0},
+		sticky: {type: "boolean", defaultsTo: false},
 
 		postedBy: {model: "User"},
 
 		title: {type: "string"},
-		description: {type, "string"},
+		description: {type: "string", defaultsTo: ""},
 
 
 		// links: {
