@@ -9,6 +9,9 @@ var Collection = {
 
 		postedBy: {model: "User"},
 
+		title: {type: "string"},
+		description: {type, "string"},
+
 
 		// links: {
 		// 	collection: "LinkUrl",
