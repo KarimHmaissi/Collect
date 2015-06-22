@@ -3,7 +3,6 @@ var BodyParser = require("body-parser");
 
 module.exports = {
 
-
 	get: function (req, res) {
 
 		sails.log("hit /links/get")
@@ -25,7 +24,6 @@ module.exports = {
 			res.badRequest("Could not find a link with id: " + id);
 		}
 
-	
 	},
 
 	//crawl link and send results in response

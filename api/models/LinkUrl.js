@@ -18,10 +18,10 @@ var LinkUrl = {
 
 		embed: {model: "Embed"},
 
-		memberOf: {
-			collection: "Collection",
-			via: "links"
-		},
+		// memberOf: {
+		// 	collection: "Collection",
+		// 	via: "links"
+		// },
 
 
 		memberOfCollection: {type: "boolean", defaultsTo: false}
