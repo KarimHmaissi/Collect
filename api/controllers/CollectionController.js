@@ -22,7 +22,6 @@ module.exports = {
 
 		Collection.find().exec(handler);
 
-		res.json({route: "index"});
 	},
 
 	get: function (req, res) {
