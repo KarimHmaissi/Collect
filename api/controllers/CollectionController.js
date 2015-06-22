@@ -23,16 +23,50 @@ module.exports = {
 			var id = req.params.all().id;
 			sails.log("id: " + id);
 
-			var handler = function (err, collection) {
-				if(!err && collection) {
-					res.json(collection);
-				} else {
-					res.badRequest("Could not find a collection: " + err);
-				}		
-			};
+			// var handler = function (err, collection) {
+			// 	if(!err && collection) {
+			// 		res.json(collection);
+			// 	} else {
+			// 		res.badRequest("Could not find a collection: " + err);
+			// 	}		
+			// };
 
-			Collection.findOne().where({id: id}).populate("links").exec(handler);
+			// Collection.findOne().where({id: id}).populate("links").exec(handler);
+
+
+			Collection
+			.findOne()
+			.where({id: id})
+			.populate("links")
+			.then(function (collection) {
+				LinkUrl.find({
+					id: _.pluck(collection.links, "linkUrl")
+				}).then(function (linkUrls) {
+					return linkUrls;
+				});
+
+				return [collection, linkUrls];
+			})
+			.spread(function (collection, linkUrls) {
+				var linkUrls = _.indexBy(linkUrls, "id");
+
+				collection.links = _.map(collection.links, function (link) {
+					link.linkUrl = linkUrls[link.linkUrl];
+					return link;
+				});
+
+				res.json(collection);
+			});
 		}	
+
+
+
+
+
+
+
+
+
 	},
 
 
