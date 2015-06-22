@@ -5,6 +5,9 @@ module.exports = {
 
 
 	get: function (req, res) {
+
+		sails.log("hit /links/get")
+
 		if(typeof req.params.all().id === "string")	{
 			var id = req.params.all().id;
 
@@ -12,7 +15,7 @@ module.exports = {
 				if(err) {
 					res.badRequest("Could not find a link: " + err);
 				} else {
-					req.json(link);
+					res.json(link);
 				}
 			}
 
@@ -22,7 +25,7 @@ module.exports = {
 			res.badRequest("Could not find a link with id: " + id);
 		}
 
-		res.json({something: "something"});
+	
 	},
 
 	//crawl link and send results in response
