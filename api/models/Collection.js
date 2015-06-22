@@ -29,7 +29,7 @@ var Collection = {
 			collection: "User",
 			via: "upvoted"
 		},
-
+ 
 		downvoters: {
 			collection: "User",
 			via: "downvoted"

@@ -31,7 +31,7 @@ module.exports = {
 
 		sails.log("hit /login/submit");
 		sails.log("having a look at the link you submitted");
-
+		sails.log(req.body);
 		//validate input
 		if(typeof req.body.url === "string") {
 			var url = req.body.url;
