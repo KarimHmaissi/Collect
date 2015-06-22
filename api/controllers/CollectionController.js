@@ -27,7 +27,7 @@ module.exports = {
 				}		
 			};
 
-			Collection.find({id: id}).populate("links").exec(handler);
+			Collection.findOne({id: id}).populate("links").exec(handler);
 		}	
 	},
 
