@@ -5,7 +5,7 @@ var LinkMeta = {
 
 		title: {type: "string", defaultsTo: ""},
 		description: {type: "string", defaultsTo: ""},
-		group: {type: "string", defaultTo: "misc"},
+		group: {type: "string", defaultsTo: "misc"},
 
 		linkUrl: {
 			model: "linkUrl"

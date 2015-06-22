@@ -52,6 +52,8 @@ module.exports = {
 				collection.save(function (err, collection) {
 					res.json(collection);
 				});
+			} else {
+				res.json({err: "Error creating collection: " + err});
 			}	
 		};
 
