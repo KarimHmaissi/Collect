@@ -9,12 +9,12 @@ module.exports = {
 	
 	index: function (req, res) {
 
-		res.json(JSON.stringify({route: "index"}));
+		res.json({route: "index"});
 	},
 
 	get: function (req, res) {
 
-		sails.log("collection/get");
+		sails.log("collections/get");
 
 		if(typeof req.params.all().id === "string") {
 			var id = req.params.all().id;
@@ -32,7 +32,11 @@ module.exports = {
 	},
 
 	submit: function (req, res) {
-		res.json({route: "submit"});	
+		sails.log("hit /collections/submit");
+
+		sails.log(req.body);
+
+		res.json({route: "submit", resJson: req.body});	
 	},
 
 
