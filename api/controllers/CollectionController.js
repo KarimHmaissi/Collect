@@ -5,6 +5,9 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var _ = require("lodash");
+var Promise = require("bluebird");
+
 module.exports = {
 	
 	index: function (req, res) {
@@ -32,11 +35,11 @@ module.exports = {
 		}	
 	},
 
+
 	submit: function (req, res) {
 		sails.log("hit /collections/submit");
 
 		sails.log(req.body);
-
 
 		//add validation of incoming json here
 		var collect = req.body;
@@ -79,6 +82,8 @@ module.exports = {
 
 };
 
+
+// http://stackoverflow.com/questions/23446484/sails-js-populate-nested-associations
 
 
 // {
