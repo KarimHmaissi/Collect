@@ -37,6 +37,10 @@ module.exports = {
 			var url = req.body.url;
 
 			var handler = function (err, links) {
+				if(err) {
+					res.json({error: "something went wrong: " + err});
+				}
+
 				if(!err && links.length > 0) {
 					var result = {
 						details: links[0],
