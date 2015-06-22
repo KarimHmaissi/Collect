@@ -77,31 +77,33 @@ module.exports = {
 
 		sails.log(req.body);
 
+		res.json({stubbed: "stubbed"});
+
 		//add validation of incoming json here
-		var collect = req.body;
+		// var collect = req.body;
 
-		if(!collect.title || !req.session.user || collect.links.length < 1) {
-			res.json({err: "Error creating collection"});
-		}
+		// if(!collect.title || !req.session.user || collect.links.length < 1) {
+		// 	res.json({err: "Error creating collection"});
+		// }
 
-		var newCollection = {
-			title: collect.title,
-			description: collect.description,
-			postedBy: req.session.user.id
-		};
+		// var newCollection = {
+		// 	title: collect.title,
+		// 	description: collect.description,
+		// 	postedBy: req.session.user.id
+		// };
 
-		var handler = function (err, collection) {
-			if(!err && collection) {
-				collection.links.add(collect.links);
-				collection.save(function (err, collection) {
-					res.json(collection);
-				});
-			} else {
-				res.json({err: "Error creating collection: " + err});
-			}	
-		};
+		// var handler = function (err, collection) {
+		// 	if(!err && collection) {
+		// 		collection.links.add(collect.links);
+		// 		collection.save(function (err, collection) {
+		// 			res.json(collection);
+		// 		});
+		// 	} else {
+		// 		res.json({err: "Error creating collection: " + err});
+		// 	}	
+		// };
 
-		Collection.create(newCollection).exec(handler);
+		// Collection.create(newCollection).exec(handler);
 
 		// res.json({route: "submit", resJson: req.body});	
 	},
