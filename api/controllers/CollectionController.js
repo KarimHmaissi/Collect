@@ -27,7 +27,7 @@ module.exports = {
 				}		
 			};
 
-			Collection.findOne({id: id}).populate("links").exec(handler);
+			Collection.findOne().where({id: id}).populate("links").exec(handler);
 		}	
 	},
 
