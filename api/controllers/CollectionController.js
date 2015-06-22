@@ -80,7 +80,7 @@ module.exports = {
 		//add validation of incoming json here
 		var collect = req.body;
 
-		if(!collect.title || !collect.req.session.user || collect.links.length < 1) {
+		if(!collect.title || !req.session.user || collect.links.length < 1) {
 			res.json({err: "Error creating collection"});
 		}
 
