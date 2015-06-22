@@ -12,6 +12,16 @@ module.exports = {
 	
 	index: function (req, res) {
 
+		var handler = function (err, collections) {
+			if(!err) {
+				res.json(collections);
+			} else {
+				res.json({err: err});
+			}
+		}
+
+		Collection.find().exec(handler);
+
 		res.json({route: "index"});
 	},
 
@@ -33,7 +43,7 @@ module.exports = {
 
 			// Collection.findOne().where({id: id}).populate("links").exec(handler);
 
-
+			// http://stackoverflow.com/questions/23446484/sails-js-populate-nested-associations
 			Collection
 			.findOne()
 			.where({id: id})
@@ -57,16 +67,9 @@ module.exports = {
 
 				res.json(collection);
 			});
+		} else {
+			res.json({"error": "invalid id"});
 		}	
-
-
-
-
-
-
-
-
-
 	},
 
 
@@ -77,6 +80,10 @@ module.exports = {
 
 		//add validation of incoming json here
 		var collect = req.body;
+
+		if(!collect.title || !collect.req.session.user || collect.links.length < 1) {
+			res.json({err: "Error creating collection"});
+		}
 
 		var newCollection = {
 			title: collect.title,
@@ -117,7 +124,7 @@ module.exports = {
 };
 
 
-// http://stackoverflow.com/questions/23446484/sails-js-populate-nested-associations
+
 
 
 // {
