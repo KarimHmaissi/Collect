@@ -18,9 +18,10 @@ module.exports = {
 
 		if(typeof req.params.all().id === "string") {
 			var id = req.params.all().id;
+			sails.log("id: " + id);
 
 			var handler = function (err, collection) {
-				if(!err && collection.length > 0) {
+				if(!err && collection) {
 					res.json(collection);
 				} else {
 					res.badRequest("Could not find a collection: " + err);
