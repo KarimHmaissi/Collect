@@ -46,11 +46,21 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  "get /api/v1/collection/index": "CollectionController.index",
-  "get /api/v1/collection/get/:id": "CollectionController.get",
-  "post /api/v1/collection/submit": "CollectionController.submit",
+  "get /api/v1/collections": "CollectionController.index",
+  "get /api/v1/collections/:id": "CollectionController.get",
+  "post /api/v1/collections": "CollectionController.submit",
+  "put /api/v1/collections/:id": "CollectionController.update",
+  "delete /api/v1/collections/:id": "CollectionController.delete",
 
-  "get /api/v1/link/get/:id": "LinkController.get",
-  "get /api/v1/link/submit/:url": "LinkController.submit"
+
+  "get /api/v1/links/:id": "LinkController.get",
+  "post /api/v1/links": "LinkController.submit",
+  "put /api/v1/links:/id": "LinkController.update",
+  "delete /api/v1/links:/id": "LinkController.delete"
+
+
+
+
+
 
 };

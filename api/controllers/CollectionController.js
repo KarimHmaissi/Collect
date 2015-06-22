@@ -32,7 +32,20 @@ module.exports = {
 	},
 
 	submit: function (req, res) {
-		res.json(JSON.stringify({route: "submit"}));	
+		res.json({route: "submit"});	
+	},
+
+
+	update: function (req, res) {
+		res.json({route: "update"});
+	},
+
+	delete: function (req, res) {
+		res.json({route: "delete"});
+	},
+
+	tag: function (req, res) {
+		res.json({route: "tag"});
 	}
 
 

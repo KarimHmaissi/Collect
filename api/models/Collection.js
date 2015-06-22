@@ -10,14 +10,10 @@ var Collection = {
 		postedBy: {model: "User"},
 
 
-
-
 		links: {
 			collection: "LinkUrl",
 			via: "memberOf"
 		},
-
-
 
 		upvoters: {
 			collection: "User",

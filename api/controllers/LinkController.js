@@ -1,27 +1,28 @@
 var Url = require("url");
+var BodyParser = require("body-parser");
 
 module.exports = {
 
 
 	get: function (req, res) {
-		// if(typeof req.params.all().id === "string")	{
-		// 	var id = req.params.all().id;
+		if(typeof req.params.all().id === "string")	{
+			var id = req.params.all().id;
 
-		// 	var handler = function (err, link) {
-		// 		if(err) {
-		// 			res.badRequest("Could not find a link: " + err);
-		// 		} else {
-		// 			req.json(link);
-		// 		}
-		// 	}
+			var handler = function (err, link) {
+				if(err) {
+					res.badRequest("Could not find a link: " + err);
+				} else {
+					req.json(link);
+				}
+			}
 
-		// 	LinkUrl.find({where: {id: id}}).exec(handler);
+			LinkUrl.find({where: {id: id}}).exec(handler);
 
-		// } else {
-		// 	res.badRequest("Could not find a link with id: " + id);
-		// }
+		} else {
+			res.badRequest("Could not find a link with id: " + id);
+		}
 
-		res.json(JSON.stringify({something: "something"}));
+		res.json({something: "something"});
 	},
 
 	//crawl link and send results in response
@@ -31,10 +32,8 @@ module.exports = {
 		sails.log("having a look at the link you submitted");
 
 		//validate input
-		if(typeof req.params.all().url === "string") {
-			var url = req.params.all().url;
-
-			
+		if(typeof req.body.url === "string") {
+			var url = req.body.url;
 
 			var handler = function (err, links) {
 				if(!err && links.length > 0) {
@@ -69,6 +68,18 @@ module.exports = {
 		}
 		
 
+	},
+
+	update: function (req, res) {
+		res.json({route: "update"});
+	},
+
+	delete: function (req, res) {
+		res.json({route: "delete"});
+	},
+
+	tag: function (req, res) {
+		res.json({route: "tag"});
 	}
 
 }
