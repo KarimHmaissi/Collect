@@ -89,9 +89,21 @@ var crawlEmbedly = function (result) {
 
 				//embedly embed
 				if(typeof parsedBody.media.type === "string") {
-					linkUrl.embedHtml = parsedBody.media.html;
-					linkUrl.embedType = parsedBody.media.type;
-					linkUrl.embedPresent = true;
+
+					if(parsedBody.media.type === "video") {
+						linkUrl.embedHtml = parsedBody.media.html;
+						linkUrl.embedType = parsedBody.media.type;
+						linkUrl.embedPresent = true;
+
+					} else if(parsedBody.media.type === "photo") {
+
+						linkUrl.embedHtml = "<img src='" + parsedBody.media.url + "' />";
+						linkUrl.embedType = parsedBody.media.type;
+						linkUrl.embedPresent = true;
+					}
+
+					
+					
 				}
 
 				sails.log("Got a response!");
