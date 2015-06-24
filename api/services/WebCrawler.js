@@ -69,6 +69,7 @@ var crawlEmbedly = function (result) {
 
 				var parsedBody = JSON.parse(body);
 
+
 				var linkUrl = {
 					url: parsedBody.original_url,
 					title: parsedBody.title,
@@ -77,16 +78,26 @@ var crawlEmbedly = function (result) {
 					providerUrl: parsedBody.provider_url,
 					providerName: parsedBody.provider_name,
 					providerDisplay: parsedBody.provider_display,
-					embed: null,
 					postedBy: result.userId
+				}
+
+			
+				//thumbnail
+				if(parsedBody.images.length > 0) {
+					linkUrl.thumbnail = parsedBody.images[0].url;
+				}
+
+				//embedly embed
+				if(typeof parsedBody.media.type === "string") {
+					linkUrl.embedHtml = parsedBody.media.html;
+					linkUrl.embedType = parsedBody.media.type;
+					linkUrl.embedPresent = true;
 				}
 
 				sails.log("Got a response!");
 				sails.log(linkUrl);
 
-				if(parsedBody.images.length > 0) {
-					linkUrl.thumbnail = parsedBody.images[0].url;
-				}
+
 
 				//save to DB
 				var handler = function (err, savedLink) {
