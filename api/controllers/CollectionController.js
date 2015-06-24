@@ -105,7 +105,7 @@ module.exports = {
 
 		Collection.create(newCollection).exec(handler);
 
-		res.json({route: "submit", resJson: req.body});	
+		// res.json({route: "submit", resJson: req.body});	
 	},
 
 
