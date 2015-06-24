@@ -17,9 +17,9 @@ var LinkUrl = {
 		postedBy: {model: "User"},
 
 
-		embedHtml: {type: "string" defaultsTo: ""},
-		embedPresent: {type: "boolean" defaultsTo: false},
-		embedType: {type: "string" defaultsTo: ""},
+		embedHtml: {type: "string", defaultsTo: ""},
+		embedPresent: {type: "boolean", defaultsTo: false},
+		embedType: {type: "string", defaultsTo: ""},
 
 		// embed: {model: "Embed"},
 
