@@ -11,7 +11,7 @@ var Promise = require("bluebird");
 module.exports = {
 	
 	index: function (req, res) {
-
+		sails.log("hit /collection/index");
 		var handler = function (err, collections) {
 			if(!err) {
 				res.json(collections);
