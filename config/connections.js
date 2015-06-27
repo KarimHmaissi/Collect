@@ -43,7 +43,7 @@ module.exports.connections = {
   ***************************************************************************/
   postgresqlServer: {
     adapter: 'sails-postgresql',
-    host: '192.168.0.5',
+    host: '192.168.0.4',
     user: 'postgres',
     password: 'qpalzm12',
     database: 'collectApi'
