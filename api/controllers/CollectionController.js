@@ -20,7 +20,7 @@ module.exports = {
 			}
 		}
 
-		Collection.find().exec(handler);
+		Collection.find().limit(15).sort('createdAt desc').exec(handler);
 
 	},
 
