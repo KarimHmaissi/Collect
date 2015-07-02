@@ -119,7 +119,7 @@ module.exports = {
 						}
 
 					}
-					
+
 					sails.log("finishedCollection");
 					sails.log(collection);
 					sails.log(collection.groups[0].ownedLinks);
@@ -261,7 +261,7 @@ module.exports = {
 						sails.log("saved group ++++++++++++");
 						sails.log(savedGroup);
 						sails.log("saved group ++++++++++++");
-						savedGroup.links.add(group.links);
+						savedGroup.ownedLinks.add(group.ownedLinks);
 						savedGroup.save(function (err, moreRecentSavedGroup) {
 							sails.log("saved group after adding links ++++++++++++");
 							sails.log(moreRecentSavedGroup);
