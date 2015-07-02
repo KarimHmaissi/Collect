@@ -89,7 +89,8 @@ module.exports = {
 				sails.log(collection);
 				
 				LinkMeta.find({memberOf: _.pluck(collection.groups, "id")}).populate("linkUrl").then(function (linkMetas) {
-			
+					sails.log(linkMetas);
+
 					var i,j,
 						groupLength = collection.groups.length,
 						linkmetasLength = linkMetas.length;
@@ -98,11 +99,12 @@ module.exports = {
 
 						for(j = 0; j < groupLength; j++) {
 							if(i === 0) {
-								collection.groups.links = [];
+								collection.groups[j].links = [];
 							}	
 
 							if(collection.groups[j].id === linkMetas[i].memberOf) {
-								collection.groups.links.push(linkMetas[i].memberOf);
+								sails.log("adding linkMeta to collection.group");
+								collection.groups[j].links.push(linkMetas[i].memberOf);
 							}
 
 						}
