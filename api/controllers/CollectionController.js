@@ -121,8 +121,8 @@ module.exports = {
 					}
 
 					sails.log("finishedCollection");
-					sails.log(collection);
-					sails.log(collection.groups[0].ownedLinks);
+					// sails.log(collection);
+					// sails.log(collection.groups[0].ownedLinks);
 
 					collection.dave= {title: "daveeton"};
 					collection.groups[0].david = {title: "sdijgfoidfjg"};
@@ -130,6 +130,11 @@ module.exports = {
 					collection.groups[0].ownedLinks2 = [];
 					collection.groups[0].ownedLinks2.push({"dave": "oush"});
 
+
+					sails.log(collection);
+					collection.toJSON = undefined;//this will stop waterline's `toJSON` from being called
+					sails.log("after toJson override++++++++");
+					sails.log(collection);
 					res.json(collection);
 				});
 
