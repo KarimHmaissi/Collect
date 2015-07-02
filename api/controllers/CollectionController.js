@@ -123,8 +123,8 @@ module.exports = {
 					sails.log(collection);
 					sails.log(collection.groups[0].links);
 
-					collection.dave= "daveeton";
-					collection.groups[0].david = "sdijgfoidfjg";
+					collection.dave= {title: "daveeton"};
+					collection.groups[0].david = {title: "sdijgfoidfjg"};
 
 					res.json(collection);
 				});
