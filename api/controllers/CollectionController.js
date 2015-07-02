@@ -159,7 +159,14 @@ module.exports = {
 
 		var handler = function (err, savedCollection) {
 			if(!err && savedCollection) {
+				sails.log("saved collection ++++++++++++++");
+				sails.log(savedCollection);
+				sails.log("saved collection ++++++++++++++");
+
+
 				saveGroups(savedCollection);
+				
+
 			} else {
 				res.json({err: "Error creating collection: " + err});
 			}	
@@ -169,22 +176,37 @@ module.exports = {
 		var saveGroups = function (savedCollection) {
 			var savedGroups = [];
 
+			sails.log("loooping over groups");
+
+
 			var groups = _.map(collect.groups, function (group) {
 
+				sails.log("looking at single group");
+
+
 				Group.create(group).exec(function (err, savedGroup) {
+					sails.log("saved group ++++++++++++");
+					sails.log(savedGroup);
+					sails.log("saved group ++++++++++++");
 					savedGroup.links.add(group.links);
-					savedGroup.save(function (err, group) {
-						
-					return group;
+					savedGroup.save(function (err, moreRecentSavedGroup) {
+						sails.log("saved group after adding links ++++++++++++");
+						sails.log(moreRecentSavedGroup);
+						sails.log("saved group after adding links ++++++++++++");
+						return moreRecentSavedGroup;
 					});
-				})
+				});
 
 				
 			});
 
+			sails.log("saving entire collection");
+
 			savedCollection.groups.add(saveGroups);
-			
+
 			savedCollection.save(function (err, finishedCollection) {
+				sails.log("entire collection saved");
+
 				res.json(finishedCollection);
 			})
 		};
