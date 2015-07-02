@@ -88,8 +88,23 @@ module.exports = {
 			.then(function (collection) {
 				sails.log(collection);
 				
-				LinkMeta.find({memberOf: _.pluck(collection.groups, "id")}).then(function (linkMetas) {
-					collection.linkMeta = linkMetas;
+				LinkMeta.find({memberOf: _.pluck(collection.groups, "id")}).populate("linkUrl").then(function (linkMetas) {
+			
+					var i,j,
+						groupLength = collection.groups.length,
+						linkmetasLength = linkMetas.length;
+
+					for(i =0; i < linkmetasLength; i ++) {
+
+						for(j = 0; j < groupLength; j++) {
+							if(collection.groups[j].id === linkMetas[i].memberOf) {
+								collection.groups.links.push(linkMetas[i].memberOf);
+							}
+
+						}
+
+					}
+
 					res.json(collection);
 				});
 
