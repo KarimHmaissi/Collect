@@ -45,44 +45,52 @@ module.exports = {
 
 
 
-			Collection.findOne().where({id: id}).populate("groups")
-			.then(function (collection) {
+			// Collection.findOne().where({id: id}).populate("groups")
+			// .then(function (collection) {
 
-				sails.log("init collection");
-				sails.log(collection);
+			// 	sails.log("init collection");
+			// 	sails.log(collection);
 
-				var unflat = _.pluck(collection.groups, "links");
-				var flat = _.flatten(unflat, false);
+			// 	var unflat = _.pluck(collection.groups, "links");
+			// 	var flat = _.flatten(unflat, false);
 
-				sails.log("groups");
-				sails.log(flat);
+			// 	sails.log("groups");
+			// 	sails.log(flat);
 				
-				var linkMetas = LinkMeta.find({
-					id: flat
-				}).populate("linkUrl").then(function (linkMetas) {
-					sails.log("linkMeta");
-					sails.log(linkMetas);
-					return linkMetas;
-				});
+			// 	var linkMetas = LinkMeta.find({
+			// 		id: flat
+			// 	}).populate("linkUrl").then(function (linkMetas) {
+			// 		sails.log("linkMeta");
+			// 		sails.log(linkMetas);
+			// 		return linkMetas;
+			// 	});
 
-				return [collection, linkMetas];
+			// 	return [collection, linkMetas];
+
+			// })
+			// .spread(function (collection, linkMetas) {
+			// 	var linkMetas = _.indexBy(linkMetas, "id");
+
+			// 	collection.groups = _.map(collection.groups, function (group) {
+			// 		group.links = _.map(group.links, function (link) {
+			// 			link = linkMetas[link];
+
+			// 			return link;
+			// 		});	
+
+			// 		return group;
+			// 	});
+
+			// 	res.json(collection);
+			// });
+
+			Collection.findOne().where({id: id})
+			.then(function (collection) {
+				res.json(collection);
+				
 
 			})
-			.spread(function (collection, linkMetas) {
-				var linkMetas = _.indexBy(linkMetas, "id");
-
-				collection.groups = _.map(collection.groups, function (group) {
-					group.links = _.map(group.links, function (link) {
-						link = linkMetas[link];
-
-						return link;
-					});	
-
-					return group;
-				});
-
-				res.json(collection);
-			});
+		
 
 
 
