@@ -125,6 +125,7 @@ module.exports = {
 
 					collection.dave= {title: "daveeton"};
 					collection.groups[0].david = {title: "sdijgfoidfjg"};
+					collection.groups[0].links = [];
 
 					res.json(collection);
 				});
