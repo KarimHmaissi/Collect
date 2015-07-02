@@ -102,11 +102,18 @@ module.exports = {
 						for(j = 0; j < groupLength; j++) {
 							if(i === 0) {
 								collection.groups[j].links = [];
+								sails.log("new links array");
+								sails.log(collection.groups[j].links);
+								sails.log(collection.groups[j]);
 							}	
 
 							if(collection.groups[j].id === linkMetas[i].memberOf) {
 								sails.log("adding linkMeta to collection.group");
-								collection.groups[j].links.push(linkMetas[i].memberOf);
+								
+								collection.groups[j].links.push(linkMetas[i]);
+								sails.log("new links added");
+								sails.log(collection.groups[j].links);
+								sails.log(collection.groups[j]);
 							}
 
 						}
@@ -114,7 +121,7 @@ module.exports = {
 					}
 					sails.log("finishedCollection");
 					sails.log(collection);
-					
+
 					res.json(collection);
 				});
 
