@@ -18,4 +18,4 @@ var Group = {
 	}
 }
 
-module.exports = LinkMeta;
+module.exports = Group;
