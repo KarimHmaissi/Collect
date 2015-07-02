@@ -101,7 +101,7 @@ module.exports = {
 
 						for(j = 0; j < groupLength; j++) {
 							if(i === 0) {
-								collection.groups[j].links = [];
+								collection.groups[j]["links"]= [];
 								sails.log("new links array");
 								sails.log(collection.groups[j].links);
 								sails.log(collection.groups[j]);
@@ -123,7 +123,7 @@ module.exports = {
 					sails.log(collection);
 					sails.log(collection.groups[0].links);
 
-					res.json(collection.groups[0].links);
+					res.json(collection);
 				});
 
 				
