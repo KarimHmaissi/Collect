@@ -123,7 +123,7 @@ module.exports = {
 					sails.log(collection);
 					sails.log(collection.groups[0].links);
 
-					res.json(collection);
+					res.json(collection.groups[0].links);
 				});
 
 				
