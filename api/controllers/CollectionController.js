@@ -122,7 +122,7 @@ module.exports = {
 
 					sails.log("finishedCollection");
 					sails.log(collection);
-					// sails.log(collection.groups[0].ownedLinks);
+					sails.log(collection.groups[0].ownedLinks);
 
 					// collection.dave= {title: "daveeton"};
 					// collection.groups[0].david = {title: "sdijgfoidfjg"};
@@ -218,7 +218,7 @@ module.exports = {
 			if(!err && savedCollection) {
 				sails.log("saved collection ++++++++++++++");
 				sails.log(savedCollection);
-				sails.log("saved collection ++++++++++++++");
+
 
 
 				saveGroups(savedCollection).then(function (savedGroups) {
@@ -260,12 +260,12 @@ module.exports = {
 					Group.create(group).exec(function (err, savedGroup) {
 						sails.log("saved group ++++++++++++");
 						sails.log(savedGroup);
-						sails.log("saved group ++++++++++++");
+
 						savedGroup.ownedLinks.add(group.ownedLinks);
 						savedGroup.save(function (err, moreRecentSavedGroup) {
 							sails.log("saved group after adding links ++++++++++++");
 							sails.log(moreRecentSavedGroup);
-							sails.log("saved group after adding links ++++++++++++");
+
 							resolve(moreRecentSavedGroup);
 						});
 					});
