@@ -48,12 +48,20 @@ module.exports = {
 			Collection.findOne().where({id: id}).populate("groups")
 			.then(function (collection) {
 
+				sails.log("init collection");
+				sails.log(collection);
+
 				var unflat = _.pluck(collection.groups, "links");
 				var flat = _.flatten(unflat, false);
+
+				sails.log("groups");
+				sails.log(flat);
 				
 				var linkMetas = LinkMeta.find({
 					id: flat
 				}).populate("linkUrl").then(function (linkMetas) {
+					sails.log("linkMeta");
+					sails.log(linkMetas);
 					return linkMetas;
 				});
 
