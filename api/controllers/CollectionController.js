@@ -102,6 +102,8 @@ module.exports = {
 						for(j = 0; j < groupLength; j++) {
 							if(i === 0) {
 								collection.groups[j]["ownedLinks"]= [];
+								collection.groups[j].oush = {};
+								collection.groups[j].something = "something";
 								sails.log("new links array");
 								// sails.log(collection.groups[j].linownedLinksks);
 								// sails.log(collection.groups[j]);
@@ -110,7 +112,7 @@ module.exports = {
 							if(collection.groups[j].id === linkMetas[i].memberOf) {
 								sails.log("adding linkMeta to collection.group");
 								
-								collection.groups[j].ownedLinks = linkMetas[i];
+								// collection.groups[j].ownedLinks = linkMetas[i];
 								sails.log("new links added");
 								// sails.log(collection.groups[j].ownedLinks);
 								// sails.log(collection.groups[j]);
