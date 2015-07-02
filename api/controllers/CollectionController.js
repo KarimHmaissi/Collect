@@ -87,9 +87,13 @@ module.exports = {
 			Collection.findOne().where({id: id}).populate("groups")
 			.then(function (collection) {
 				sails.log(collection);
-				res.json(collection);
 				
+				LinkMeta.find({memberOf: ._pluck(collection.groups, "id")}).then(function (linkMeta) {
+					collection.linkMeta = linkMetas;
+					res.json(collection);
+				});
 
+				
 			});
 
 
