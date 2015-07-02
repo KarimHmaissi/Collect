@@ -270,13 +270,15 @@ module.exports = {
 						sails.log("saved group ++++++++++++");
 						sails.log(savedGroup);
 
-						savedGroup.ownedLinks.add(group.ownedLinks);
-						savedGroup.save(function (err, moreRecentSavedGroup) {
-							sails.log("saved group after adding links ++++++++++++");
-							sails.log(moreRecentSavedGroup);
+						resolve(savedGroup);
 
-							resolve(moreRecentSavedGroup);
-						});
+						// savedGroup.ownedLinks.add(group.ownedLinks);
+						// savedGroup.save(function (err, moreRecentSavedGroup) {
+						// 	sails.log("saved group after adding links ++++++++++++");
+						// 	sails.log(moreRecentSavedGroup);
+
+							
+						// });
 					});
 
 				});
