@@ -88,7 +88,7 @@ module.exports = {
 			.then(function (collection) {
 				sails.log(collection);
 				
-				LinkMeta.find({memberOf: ._pluck(collection.groups, "id")}).then(function (linkMeta) {
+				LinkMeta.find({memberOf: _.pluck(collection.groups, "id")}).then(function (linkMeta) {
 					collection.linkMeta = linkMetas;
 					res.json(collection);
 				});
