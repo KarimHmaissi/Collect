@@ -86,13 +86,11 @@ module.exports = {
 
 			Collection.findOne().where({id: id})
 			.then(function (collection) {
+				sails.log(collection);
 				res.json(collection);
 				
 
 			})
-		
-
-
 
 
 			// http://stackoverflow.com/questions/23446484/sails-js-populate-nested-associations
