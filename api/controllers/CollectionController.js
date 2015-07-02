@@ -122,7 +122,7 @@ module.exports = {
 
 					sails.log("finishedCollection");
 					sails.log(collection);
-					sails.log(collection.groups[0].ownedLinks);
+					// sails.log(collection.groups[0].ownedLinks);
 
 					// collection.dave= {title: "daveeton"};
 					// collection.groups[0].david = {title: "sdijgfoidfjg"};
