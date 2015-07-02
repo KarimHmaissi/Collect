@@ -124,10 +124,11 @@ module.exports = {
 					sails.log(collection);
 					sails.log(collection.groups[0].ownedLinks);
 
-					// collection.dave= {title: "daveeton"};
-					// collection.groups[0].david = {title: "sdijgfoidfjg"};
+					collection.dave= {title: "daveeton"};
+					collection.groups[0].david = {title: "sdijgfoidfjg"};
 					// collection.groups[0].ownedLinks = [];
-					// collection.groups[0].andy = [];
+					collection.groups[0].ownedLinks2 = [];
+					collection.groups[0].ownedLinks2.push({"dave": "oush"});
 
 					res.json(collection);
 				});
