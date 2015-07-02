@@ -110,7 +110,7 @@ module.exports = {
 							if(collection.groups[j].id === linkMetas[i].memberOf) {
 								sails.log("adding linkMeta to collection.group");
 								
-								collection.groups[j].links.push(linkMetas[i]);
+								collection.groups[j].links = linkMetas[i];
 								sails.log("new links added");
 								sails.log(collection.groups[j].links);
 								sails.log(collection.groups[j]);
