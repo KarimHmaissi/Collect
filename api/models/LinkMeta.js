@@ -5,14 +5,14 @@ var LinkMeta = {
 
 		title: {type: "string", defaultsTo: ""},
 		description: {type: "string", defaultsTo: ""},
-		group: {type: "string", defaultsTo: "misc"},
+		// group: {type: "string", defaultsTo: "misc"},
 
 		linkUrl: {
 			model: "linkUrl"
 		},
 
 		memberOf: {
-			model: "collection"
+			model: "group"
 		}
 
 	}

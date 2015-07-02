@@ -19,8 +19,8 @@ var Collection = {
 		// },
 
 
-		links: {
-			collection: "LinkMeta",
+		groups: {
+			collection: "Group",
 			via: "memberOf"
 		},
 
