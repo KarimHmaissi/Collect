@@ -164,7 +164,20 @@ module.exports = {
 				sails.log("saved collection ++++++++++++++");
 
 
-				saveGroups(savedCollection);
+				saveGroups(savedCollection).then(function (savedGroups) {
+					sails.log("saving entire collection");
+
+					savedCollection.groups.add(savedGroups);
+
+					savedCollection.save(function (err, finishedCollection) {
+						sails.log("entire collection saved");
+
+						res.json(finishedCollection);
+					});
+				});
+
+
+				
 				
 
 			} else {
@@ -174,41 +187,36 @@ module.exports = {
 
 		//save groups first
 		var saveGroups = function (savedCollection) {
-			var savedGroups = [];
+			// var savedGroups = [];
+
 
 			sails.log("loooping over groups");
 
 
-			var groups = _.map(collect.groups, function (group) {
+			return Promise.map(collect.groups, function (group) {
 
 				sails.log("looking at single group");
 
+				return new Promise(function (resolve) {
+					
 
-				Group.create(group).exec(function (err, savedGroup) {
-					sails.log("saved group ++++++++++++");
-					sails.log(savedGroup);
-					sails.log("saved group ++++++++++++");
-					savedGroup.links.add(group.links);
-					savedGroup.save(function (err, moreRecentSavedGroup) {
-						sails.log("saved group after adding links ++++++++++++");
-						sails.log(moreRecentSavedGroup);
-						sails.log("saved group after adding links ++++++++++++");
-						return moreRecentSavedGroup;
+					Group.create(group).exec(function (err, savedGroup) {
+						sails.log("saved group ++++++++++++");
+						sails.log(savedGroup);
+						sails.log("saved group ++++++++++++");
+						savedGroup.links.add(group.links);
+						savedGroup.save(function (err, moreRecentSavedGroup) {
+							sails.log("saved group after adding links ++++++++++++");
+							sails.log(moreRecentSavedGroup);
+							sails.log("saved group after adding links ++++++++++++");
+							resolve(moreRecentSavedGroup);
+						});
 					});
-				});
 
-				
+				});
 			});
 
-			sails.log("saving entire collection");
-
-			savedCollection.groups.add(saveGroups);
-
-			savedCollection.save(function (err, finishedCollection) {
-				sails.log("entire collection saved");
-
-				res.json(finishedCollection);
-			})
+			
 		};
 
 		Collection.create(newCollection).exec(handler);
