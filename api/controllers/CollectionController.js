@@ -97,6 +97,8 @@ module.exports = {
 
 					for(i =0; i < linkmetasLength; i ++) {
 
+						sails.log(i);
+
 						for(j = 0; j < groupLength; j++) {
 							if(i === 0) {
 								collection.groups[j].links = [];
@@ -110,7 +112,9 @@ module.exports = {
 						}
 
 					}
-
+					sails.log("finishedCollection");
+					sails.log(collection);
+					
 					res.json(collection);
 				});
 
