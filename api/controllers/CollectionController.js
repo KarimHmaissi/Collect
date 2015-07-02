@@ -119,6 +119,7 @@ module.exports = {
 						}
 
 					}
+					
 					sails.log("finishedCollection");
 					sails.log(collection);
 					sails.log(collection.groups[0].links);
@@ -126,6 +127,7 @@ module.exports = {
 					collection.dave= {title: "daveeton"};
 					collection.groups[0].david = {title: "sdijgfoidfjg"};
 					collection.groups[0].links = [];
+					collection.groups[0].andy = [];
 
 					res.json(collection);
 				});
