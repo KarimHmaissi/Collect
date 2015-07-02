@@ -101,7 +101,7 @@ module.exports = {
 
 						for(j = 0; j < groupLength; j++) {
 							if(i === 0) {
-								collection.groups[j]["links"]= [];
+								collection.groups[j]["ownedLinks"]= [];
 								sails.log("new links array");
 								// sails.log(collection.groups[j].linownedLinksks);
 								// sails.log(collection.groups[j]);
