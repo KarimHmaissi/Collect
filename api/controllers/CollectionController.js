@@ -158,7 +158,7 @@ module.exports = {
 
 
 		var handler = function (err, savedCollection) {
-			if(!err && collection) {
+			if(!err && savedCollection) {
 				saveGroups(savedCollection);
 			} else {
 				res.json({err: "Error creating collection: " + err});
