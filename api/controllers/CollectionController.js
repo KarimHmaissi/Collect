@@ -121,6 +121,7 @@ module.exports = {
 					}
 					sails.log("finishedCollection");
 					sails.log(collection);
+					sails.log(collection.group[0].links);
 
 					res.json(collection);
 				});
