@@ -46,7 +46,7 @@ module.exports.connections = {
     host: '192.168.0.2',
     user: 'postgres',
     password: 'qpalzm12',
-    database: 'collectApi2'
+    database: 'collectApi3'
   }
 
 

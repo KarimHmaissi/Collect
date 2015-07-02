@@ -6,7 +6,7 @@ var Group = {
 		name: {type: "string"}, 
 		order: {type: "integer"},
 
-		links: {
+		ownedLinks: {
 			collection: "LinkMeta",
 			via: "memberOf"
 		},

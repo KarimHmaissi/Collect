@@ -86,10 +86,10 @@ module.exports = {
 
 			Collection.findOne().where({id: id}).populate("groups")
 			.then(function (collection) {
-				sails.log(collection);
+				// sails.log(collection);
 				
 				LinkMeta.find({memberOf: _.pluck(collection.groups, "id")}).populate("linkUrl").then(function (linkMetas) {
-					sails.log(linkMetas);
+					// sails.log(linkMetas);
 
 					var i,j,
 						groupLength = collection.groups.length,
@@ -103,17 +103,17 @@ module.exports = {
 							if(i === 0) {
 								collection.groups[j]["links"]= [];
 								sails.log("new links array");
-								sails.log(collection.groups[j].links);
-								sails.log(collection.groups[j]);
+								// sails.log(collection.groups[j].linownedLinksks);
+								// sails.log(collection.groups[j]);
 							}	
 
 							if(collection.groups[j].id === linkMetas[i].memberOf) {
 								sails.log("adding linkMeta to collection.group");
 								
-								collection.groups[j].links = linkMetas[i];
+								collection.groups[j].ownedLinks = linkMetas[i];
 								sails.log("new links added");
-								sails.log(collection.groups[j].links);
-								sails.log(collection.groups[j]);
+								// sails.log(collection.groups[j].ownedLinks);
+								// sails.log(collection.groups[j]);
 							}
 
 						}
@@ -122,12 +122,12 @@ module.exports = {
 					
 					sails.log("finishedCollection");
 					sails.log(collection);
-					sails.log(collection.groups[0].links);
+					sails.log(collection.groups[0].ownedLinks);
 
-					collection.dave= {title: "daveeton"};
-					collection.groups[0].david = {title: "sdijgfoidfjg"};
-					collection.groups[0].links = [];
-					collection.groups[0].andy = [];
+					// collection.dave= {title: "daveeton"};
+					// collection.groups[0].david = {title: "sdijgfoidfjg"};
+					// collection.groups[0].ownedLinks = [];
+					// collection.groups[0].andy = [];
 
 					res.json(collection);
 				});
