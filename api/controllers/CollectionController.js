@@ -97,6 +97,10 @@ module.exports = {
 					for(i =0; i < linkmetasLength; i ++) {
 
 						for(j = 0; j < groupLength; j++) {
+							if(i === 0) {
+								collection.groups.links = [];
+							}	
+
 							if(collection.groups[j].id === linkMetas[i].memberOf) {
 								collection.groups.links.push(linkMetas[i].memberOf);
 							}
