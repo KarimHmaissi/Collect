@@ -102,7 +102,7 @@ module.exports = {
 						for(j = 0; j < groupLength; j++) {
 							if(i === 0) {
 								collection.groups[j]["ownedLinks"]= [];
-								collection.groups[j].oush = {};
+								collection.groups[j].oush = [];
 								collection.groups[j].something = "something";
 								sails.log("new links array");
 								// sails.log(collection.groups[j].linownedLinksks);
@@ -112,8 +112,8 @@ module.exports = {
 							if(collection.groups[j].id === linkMetas[i].memberOf) {
 								sails.log("adding linkMeta to collection.group");
 								
-								collection.groups[j].ownedLinks = linkMetas[i];
-								collection.groups[j].oush = linkMetas[i];
+								collection.groups[j].something = linkMetas[i];
+								collection.groups[j].oush.push(linkMetas[i]);
 								sails.log("new links added");
 								// sails.log(collection.groups[j].ownedLinks);
 								// sails.log(collection.groups[j]);
@@ -127,11 +127,11 @@ module.exports = {
 					// sails.log(collection);
 					// sails.log(collection.groups[0].ownedLinks);
 
-					collection.dave= {title: "daveeton"};
-					collection.groups[0].david = {title: "sdijgfoidfjg"};
+					// collection.dave= {title: "daveeton"};
+					// collection.groups[0].david = {title: "sdijgfoidfjg"};
 					// collection.groups[0].ownedLinks = [];
-					collection.groups[0].ownedLinks2 = [];
-					collection.groups[0].ownedLinks2.push({"dave": "oush"});
+					// collection.groups[0].ownedLinks2 = [];
+					// collection.groups[0].ownedLinks2.push({"dave": "oush"});
 
 
 					sails.log(collection);
