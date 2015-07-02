@@ -84,7 +84,7 @@ module.exports = {
 			// 	res.json(collection);
 			// });
 
-			Collection.findOne().where({id: id}).populate("group")
+			Collection.findOne().where({id: id}).populate("groups")
 			.then(function (collection) {
 				sails.log(collection);
 				res.json(collection);
