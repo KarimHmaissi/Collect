@@ -2,9 +2,9 @@ var LinkUrl = {
 	schema: true,
 
 	attributes:  {
-		url: {type: "string"},
+		url: {type: "string", url: true, notEmpty: true},
 
-		providerUrl: {type: "string"},
+		providerUrl: {type: "string", notEmpty: true},
 		providerName: {type: "string"},
 		providerDisplay: {type: "string"},
 

@@ -3,8 +3,8 @@ var Group = {
 
 	attributes: {
 
-		name: {type: "string"}, 
-		order: {type: "integer"},
+		name: {type: "string", notEmpty: true}, 
+		order: {type: "integer", notEmpty: true},
 
 		ownedLinks: {
 			collection: "LinkMeta",

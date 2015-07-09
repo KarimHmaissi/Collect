@@ -9,7 +9,7 @@ var Collection = {
 
 		postedBy: {model: "User"},
 
-		title: {type: "string"},
+		title: {type: "string", notEmpty: true},
 		description: {type: "string", defaultsTo: ""},
 
 
