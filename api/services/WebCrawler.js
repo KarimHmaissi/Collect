@@ -79,15 +79,25 @@ var crawlIframley = function (result) {
 							linkUrl.embedType = "html";
 						}
 
+						sails.log("looking for a thumbnail");
+
 						//thumbnail && html embed
 						_.forEach(parsedBody.links, function (n, link) {
+
+							sails.log("looping over links");
 
 							//thumbnail
 							if(link.type === "image" && linkUrl.thumbnail === "") {
 								_.forEach(link.rel, function (n, rel) {
-								
+									
+									sails.log("found a link of type image");
+
 									if(rel != "icon") {
+										sails.log("image is not an icon");
+
 										if(rel === "thumbnail" || rel === "image") {
+											sails.log("rel contains thumbnail or image saving ++++");
+
 											linkUrl.thumbnail = link.href;
 										}
 									}
@@ -104,6 +114,8 @@ var crawlIframley = function (result) {
 							}
 
 						});
+
+						sails.log("finished searching END ---------------------");
 
 					}
 
