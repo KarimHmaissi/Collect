@@ -68,7 +68,7 @@ var crawlIframley = function (result) {
 
 				
 
-				if(CollectionUtility.testProperty(parsedBody, "links", true)) {
+				if(CollectionUtility.testProperty(parsedBody, "links", false)) {
 
 
 					if(parsedBody.links.length > 0) {
@@ -87,7 +87,7 @@ var crawlIframley = function (result) {
 								_.forEach(link.rel, function (n, rel) {
 								
 									if(rel != "icon") {
-										if(rel === "thumbnail") {
+										if(rel === "thumbnail" || rel === "image") {
 											linkUrl.thumbnail = link.href;
 										}
 									}
