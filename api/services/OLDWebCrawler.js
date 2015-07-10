@@ -7,7 +7,7 @@ var Bottleneck = require("bottleneck");
 var redditLimiter = new Bottleneck(1, 2000);
 var embedlyLimiter = new Bottleneck(1, 500);
 
-var embedlyKey = embedlyKeyGlobal;
+var embedlyKey = "";
 
 var urlOptions = {
 	hostname: "",

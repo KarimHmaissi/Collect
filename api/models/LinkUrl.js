@@ -4,8 +4,8 @@ var LinkUrl = {
 	attributes:  {
 		url: {type: "string", url: true, notEmpty: true},
 
-		providerUrl: {type: "string", notEmpty: true},
-		providerName: {type: "string"},
+		providerUrl: {type: "string"},
+		providerName: {type: "string", notEmpty: true},
 		providerDisplay: {type: "string"},
 
 		title: {type: "string"},

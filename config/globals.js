@@ -60,6 +60,4 @@ module.exports.globals = {
   ****************************************************************************/
 
 	// models: true
-
-  embedlyKeyGlobal: "e8986fffa8b84c759ca155f97fc3524f"
 };
