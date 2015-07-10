@@ -82,7 +82,7 @@ var crawlIframley = function (result) {
 						sails.log("looking for a thumbnail");
 
 						//thumbnail && html embed
-						_.forEach(parsedBody.links, function (n, link) {
+						_.forEach(parsedBody.links, function (link, n) {
 
 							sails.log("looping over links");
 							sails.log(link);
@@ -92,7 +92,7 @@ var crawlIframley = function (result) {
 
 							//thumbnail
 							if(link.type === "image" && linkUrl.thumbnail === "") {
-								_.forEach(link.rel, function (n, rel) {
+								_.forEach(link.rel, function (rel, n) {
 									
 									sails.log("found a link of type image");
 
