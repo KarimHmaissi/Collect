@@ -85,6 +85,8 @@ var crawlIframley = function (result) {
 						_.forEach(parsedBody.links, function (n, link) {
 
 							sails.log("looping over links");
+							sails.log(linkUrl.thumbnail);
+							sails.log(link.type);
 
 							//thumbnail
 							if(link.type === "image" && linkUrl.thumbnail === "") {
