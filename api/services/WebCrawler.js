@@ -7,7 +7,7 @@ var Bottleneck = require("bottleneck");
 var embedlyLimiter = new Bottleneck(1, 67);
 
 var embedlyKey = "";
-var iframleyUrl = "http://localhost/iframely";
+var iframleyUrl = "http://localhost:8061/iframely";
 
 
 var crawlMain = function (domain, url, userId) {
