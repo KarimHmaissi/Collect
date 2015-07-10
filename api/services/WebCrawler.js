@@ -111,6 +111,9 @@ var crawlIframley = function (result) {
 				}
 
 
+			} else {
+				result.err = "Did not receive a valid response from iframley server";
+				fulfill(result);
 			}
 
 			
