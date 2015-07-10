@@ -86,6 +86,7 @@ var crawlIframley = function (result) {
 
 							sails.log("looping over links");
 							sails.log(link);
+							sails.log(n);
 							sails.log(linkUrl.thumbnail);
 							sails.log(link.type);
 
