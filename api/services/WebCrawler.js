@@ -112,6 +112,9 @@ var crawlIframley = function (result) {
 
 
 			} else {
+
+				sails.log(error);
+				sails.log(response.statusCode);
 				result.err = "Did not receive a valid response from iframley server";
 				fulfill(result);
 			}
