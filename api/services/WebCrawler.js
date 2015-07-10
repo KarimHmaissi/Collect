@@ -121,7 +121,7 @@ var crawlIframley = function (result) {
 			//save new time to reddis domain entry
 			// save item to db
 
-			saveLink(linkUrl, fulfill);
+			saveLink(linkUrl, result, fulfill);
 		});
 
 	
@@ -183,7 +183,7 @@ var crawlEmbedly = function (result) {
 				sails.log("Got a response!");
 				sails.log(linkUrl);
 
-				saveLink(linkUrl, fulfill);
+				saveLink(linkUrl, result, fulfill);
 
 
 			} else {
@@ -198,7 +198,7 @@ var crawlEmbedly = function (result) {
 };
 
 
-var saveLink = function (linkUrl, fulfill) {
+var saveLink = function (linkUrl, result, fulfill) {
 	//save to DB
 	var handler = function (err, savedLink) {
 		if(err) {
