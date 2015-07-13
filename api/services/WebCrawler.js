@@ -17,11 +17,11 @@ var crawlMain = function (domain, url, userId) {
 
 	// if more than 1 second ago
 		//call iframley
-		return crawlIframley({url: url, userId: userId, domain: domain});
+		// return crawlIframley({url: url, userId: userId, domain: domain});
 	// else
 
 		//call embedly
-		// return crawlEmbedly({url: url, userId: userId, domain: domain});
+		return crawlEmbedly({url: url, userId: userId, domain: domain});
 
 
 
