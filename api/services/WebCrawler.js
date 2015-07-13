@@ -184,6 +184,8 @@ var crawlEmbedly = function (result) {
 			
 				//thumbnail
 				if(parsedBody.images.length > 0) {
+					sails.log("found image!");
+					sails.log(parsedBody.images[0].url);
 					linkUrl.thumbnail = parsedBody.images[0].url;
 				}
 
