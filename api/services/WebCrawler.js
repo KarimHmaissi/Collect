@@ -212,6 +212,8 @@ var crawlEmbedly = function (result) {
 
 
 			} else {
+				sails.log(error);
+				sails.log(response.statusCode);
 				result.err = "Did not receive a valid response from Embedly.com";
 				fulfill(result);
 			}
