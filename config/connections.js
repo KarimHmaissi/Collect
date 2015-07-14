@@ -46,7 +46,7 @@ module.exports.connections = {
     host: 'localhost',
     user: 'mainUser',
     password: '',
-    database: 'collectApiMain'
+    database: 'collectApiMain2'
   }
 
 
