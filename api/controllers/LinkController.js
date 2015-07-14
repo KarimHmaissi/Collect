@@ -69,6 +69,7 @@ module.exports = {
 
 
 		} else {
+			sails.log("something went wrong with url");
 			res.badRequest("Not a valid url");
 		}
 		
