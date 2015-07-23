@@ -21,6 +21,10 @@
  		sails.log(req.body.group);
  		sails.log(req.body.meta);
 
+ 		sails.log(req.session.user);
+ 		sails.log(CollectionUtility.validateGroup(group));
+ 		
+
  		var group = req.body.group;
  		var meta = req.body.meta;
 
