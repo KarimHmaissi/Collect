@@ -95,7 +95,7 @@ module.exports = {
 		// add validation of incoming json here
 		var collect = req.body;
 
-		if(!CollectionUtility.validateNewCollection(collect) || !req.session.user) {
+		if(!CollectionUtility.validateNewCollection(collect)) {
 			res.json({err: "Error creating collection"});
 		}
 

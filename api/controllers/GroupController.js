@@ -23,13 +23,13 @@
 
  		sails.log(req.session.user);
  		sails.log(CollectionUtility.validateGroup(group));
- 		
+
 
  		var group = req.body.group;
  		var meta = req.body.meta;
 
  		//verify incoming json
- 		if(!CollectionUtility.validateGroup(group) || !req.session.user) {
+ 		if(!CollectionUtility.validateGroup(group)) {
  			sails.log("error validating group or no session");
  			res.json({err: "Error adding link"});
  		} else {
