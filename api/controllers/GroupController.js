@@ -16,6 +16,11 @@
 
  	submit: function (req, res) {
  		
+ 		sails.log("hit groups/submit");
+ 		sails.log(req.body);
+ 		sails.log(req.body.group);
+ 		sails.log(req.body.meta);
+
  		var group = req.body.group;
  		var meta = req.body.meta;
 
