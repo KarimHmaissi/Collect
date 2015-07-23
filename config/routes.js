@@ -56,7 +56,7 @@ module.exports.routes = {
   "get /api/v1/links/:id": "LinkController.get",
   "post /api/v1/links": "LinkController.submit",
   "put /api/v1/links:/id": "LinkController.update",
-  "delete /api/v1/links:/id": "LinkController.delete"
+  "delete /api/v1/links:/id": "LinkController.delete",
 
   "get /api/v1/groups/:id": "GroupController.get",
   "post /api/v1/groups": "GroupController.submit",
