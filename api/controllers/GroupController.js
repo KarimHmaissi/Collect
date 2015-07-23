@@ -52,7 +52,7 @@
  				if(groups.length > 0) {
  					// group exists
  					groups[0].ownedLinks = groups[0].ownedLinks.concat(group.ownedLinks);
- 					groups.save(function (err, finishedGroup) {
+ 					groups[0].save(function (err, finishedGroup) {
  						if(!err) {
 	 						res.json(finishedGroup);
  						} else {
