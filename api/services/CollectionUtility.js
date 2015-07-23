@@ -73,5 +73,6 @@ var validateGroup = function (group) {
 
 module.exports = {
 	testProperty: testProperty,
-	validateNewCollection: validateNewCollection
+	validateNewCollection: validateNewCollection,
+	validateGroup: validateGroup
 }
