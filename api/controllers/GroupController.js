@@ -25,7 +25,7 @@
  		var meta = req.body.meta;
 
  		//verify incoming json
- 		if(!CollectionUtility.validGroup(group) || !req.session.user) {
+ 		if(!CollectionUtility.validateGroup(group) || !req.session.user) {
  			res.json({err: "Error adding link"});
  		}
 
