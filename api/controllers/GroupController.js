@@ -56,7 +56,17 @@
 	 				//if group exists in collection
 	 				if(groups.length > 0) {
 	 					// group exists
-	 					groups[0].ownedLinks = groups[0].ownedLinks.concat(group.ownedLinks);
+	 					// groups[0].ownedLinks = groups[0].ownedLinks.concat(group.ownedLinks);
+
+	 					groups[0].ownedLinks.add(group.ownedLinks[0]);
+
+	 					//test if link exists?
+
+	 					//save new linkmeta
+	 					
+
+
+	 					groups[0].ownedLinks.push(group.ownedLinks[0]);
 	 					groups[0].save(function (err, finishedGroup) {
 	 						if(!err) {
 	 							sails.log("saved group");
