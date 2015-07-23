@@ -64,6 +64,13 @@ var validateNewCollection = function (collection) {
 	
 };
 
+// stubbed
+var validateGroup = function (group) {
+	
+
+	return true;	
+};
+
 module.exports = {
 	testProperty: testProperty,
 	validateNewCollection: validateNewCollection
