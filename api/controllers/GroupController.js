@@ -26,6 +26,7 @@
 
  		//verify incoming json
  		if(!CollectionUtility.validateGroup(group) || !req.session.user) {
+ 			sails.log("error validating group or no session");
  			res.json({err: "Error adding link"});
  		}
 
@@ -35,9 +36,11 @@
  			if(collections.length > 0) {
  				// collection exists
  				group.memberOf = meta.collectionId;
+ 				sails.log("found collection continuing");
 				addLinkToGroup();
  			} else {
  				// collection does not exist
+ 				sails.log("cant find collection invalid id");
  				res.json({err: "Collection does not exist"});
  			}
  		};
@@ -54,8 +57,10 @@
  					groups[0].ownedLinks = groups[0].ownedLinks.concat(group.ownedLinks);
  					groups[0].save(function (err, finishedGroup) {
  						if(!err) {
+ 							sails.log("saved group");
 	 						res.json(finishedGroup);
  						} else {
+ 							sails.log("error saving group");
  							res.json(err);
  						}
  					});
@@ -63,8 +68,10 @@
  					//group does not exist
  					Group.create(group).exec(function (err, savedGroup) {
  						if(!err) {
+ 							sails.log("created new group");
  							res.json(err);
  						} else {
+ 							sails.log("eroor creating new group");
  							res.json(savedGroup);
  						}
  						
