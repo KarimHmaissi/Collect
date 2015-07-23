@@ -66,7 +66,7 @@
 	 					
 
 
-	 					groups[0].ownedLinks.push(group.ownedLinks[0]);
+	 					// groups[0].ownedLinks.push(group.ownedLinks[0]);
 	 					groups[0].save(function (err, finishedGroup) {
 	 						if(!err) {
 	 							sails.log("saved group");
