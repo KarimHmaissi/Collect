@@ -37,6 +37,11 @@ module.exports.policies = {
   LinkController: {
     get: true,
     submit: ["hasJsonWebToken"]
+  },
+
+  GroupController: {
+    get: true,
+    submit: ["hasJsonWebToken"]
   }
 
   /***************************************************************************
