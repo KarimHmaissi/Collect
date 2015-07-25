@@ -45,7 +45,7 @@ module.exports = {
 
 
 					//add user to upvoters 
-					collection.upvoters.add(req.session.user.id);
+					collection.upvoters.add(req.session.user);
 
 					//save collection
 					collection.save(function (err, savedCollection) {
