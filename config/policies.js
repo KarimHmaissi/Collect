@@ -42,6 +42,11 @@ module.exports.policies = {
   GroupController: {
     get: true,
     submit: ["hasJsonWebToken"]
+  },
+
+
+  VoteController: {
+    upvote: ["hasJsonWebToken"]
   }
 
   /***************************************************************************
