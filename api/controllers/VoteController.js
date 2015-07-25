@@ -16,7 +16,7 @@ module.exports = {
 				var length = collection.upvoters.length;
 
 				for(i = 0; i < length; i++) {
-					if(collection.upvoters[i] === req.session.user.id) {
+					if(collection.upvoters[i].id === req.session.user.id) {
 						found = true;
 					}
 				}
