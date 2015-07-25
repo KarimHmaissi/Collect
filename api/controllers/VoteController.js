@@ -5,12 +5,20 @@ module.exports = {
 
 
 	upvote: function  (req, res) {
+
+		sails.log("hit /votes/upvote");
 		
 		if(typeof req.params.all().id === "string") {
 			var id = req.params.all().id;
 
 			var handler = function  (err, collection) {
 				
+				if(err || !collection) {
+					res.json(err);
+				}
+
+
+
 				var i;
 				var found = false;
 				var length = collection.upvoters.length;
@@ -21,7 +29,8 @@ module.exports = {
 					}
 				}
 
-				
+				sails.log(found);
+
 				if(!found) {
 
 					//increment upvote count
@@ -41,7 +50,7 @@ module.exports = {
 
 				} else {
 					//already upvoted
-
+					sails.log("already upvoted");
 					res.json({err: "user has already upvoted this collection"});
 				}
 
