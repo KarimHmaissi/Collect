@@ -23,6 +23,8 @@ module.exports = {
 				var found = false;
 				var length = collection.upvoters.length;
 
+				sails.log(collection.upvoters);
+				sails.log(JSON.parse(collection.upvoters));
 				sails.log(collection.upvoters.length);
 				sails.log("user id: ");
 				sails.log(req.session.user.id);
@@ -42,11 +44,11 @@ module.exports = {
 				if(!found) {
 
 					//increment upvote count
-					collection.upvotes += 1;
+					// collection.upvotes += 1;
 
 
 					//add user to upvoters 
-					collection.upvoters.add(req.session.user);
+					// collection.upvoters.add(req.session.user);
 
 					//save collection
 					collection.save(function (err, savedCollection) {
