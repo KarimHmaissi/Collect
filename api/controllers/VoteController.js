@@ -11,7 +11,18 @@ module.exports = {
 
 			var handler = function  (err, collection) {
 				
-				if(collection.upvoters.indexof(req.session.user.id) < 0) {
+				var i;
+				var found = false;
+				var length = collection.upvoters.length;
+
+				for(i = 0; i < length; i++) {
+					if(collection.upvoters[i] === req.session.user.id) {
+						found = true;
+					}
+				}
+
+				
+				if(found) {
 
 					//increment upvote count
 					collection.upvotes += 1;
