@@ -44,11 +44,11 @@ module.exports = {
 				if(!found) {
 
 					//increment upvote count
-					// collection.upvotes += 1;
+					collection.upvotes += 1;
 
 
 					//add user to upvoters 
-					// collection.upvoters.add(req.session.user);
+					collection.upvoters.add(req.session.user);
 
 					//save collection
 					collection.save(function (err, savedCollection) {
