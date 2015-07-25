@@ -24,7 +24,7 @@ module.exports = {
 				var length = collection.upvoters.length;
 
 				sails.log(collection.upvoters);
-				sails.log(JSON.parse(collection.upvoters));
+
 				sails.log(collection.upvoters.length);
 				sails.log("user id: ");
 				sails.log(req.session.user.id);
