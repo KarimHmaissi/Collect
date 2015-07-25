@@ -31,7 +31,7 @@ module.exports = {
 
 					sails.log(collection.upvoters[i].id);
 
-					if(collection.upvoters[i].id === req.session.user.id) {
+					if(collection.upvoters[i].id === parseInt(req.session.user.id), 10) {
 						found = true;
 					}
 				}
