@@ -49,7 +49,14 @@ module.exports = {
 
 					//save collection
 					collection.save(function (err, savedCollection) {
-						res.json(savedCollection);
+						if(err) {
+							sails.log(err);
+							res.json(err);
+						} else {
+							res.json(savedCollection);
+						}
+
+						
 					});
 
 					
