@@ -23,12 +23,13 @@ module.exports = {
 				var found = false;
 				var length = collection.upvoters.length;
 
+				sails.log(collection.upvoters.length);
 				sails.log("user id: ");
 				sails.log(req.session.user.id);
 
 				for(i = 0; i < length; i++) {
 
-
+					sails.log("entered loop");
 					sails.log(collection.upvoters[i].id);
 
 					if(collection.upvoters[i].id === parseInt(req.session.user.id), 10) {
