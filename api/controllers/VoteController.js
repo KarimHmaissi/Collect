@@ -73,7 +73,7 @@ module.exports = {
 
 			};
 
-			Collection.findOne().where({id: id}).exec(handler);
+			Collection.findOne().where({id: id}).populate("upvoters").exec(handler);
 		}
 
 	}
