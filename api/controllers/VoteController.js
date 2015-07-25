@@ -22,7 +22,7 @@ module.exports = {
 				}
 
 				
-				if(found) {
+				if(!found) {
 
 					//increment upvote count
 					collection.upvotes += 1;
