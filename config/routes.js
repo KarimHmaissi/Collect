@@ -64,7 +64,7 @@ module.exports.routes = {
   "delete /api/v1/groups:/id": "GroupController.delete",
 
 
-  "get api/v1/incoming/:id" : "IncomingController.get",
+  "get /api/v1/incoming/:id" : "IncomingController.get",
 
 
   // "get /api/v1/collections/:id/upvote" : "VoteController.upvote",
