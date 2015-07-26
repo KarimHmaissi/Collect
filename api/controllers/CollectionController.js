@@ -26,6 +26,10 @@ module.exports = {
 
 	},
 
+
+	
+
+
 	get: function (req, res) {
 
 		sails.log("collections/get");
@@ -38,40 +42,27 @@ module.exports = {
 			.then(function (collection) {
 
 				
-				LinkMeta.find({memberOf: _.pluck(collection.groups, "id")}).populate("linkUrl").then(function (linkMetas) {
+				LinkMeta.find({memberOf: _.pluck(collection.groups, "id")})
+				.where({moderated: true})
+				.populate("linkUrl")
+				.then(function (err, linkMetas) {
 
-					var i,j,
-						groupLength = collection.groups.length,
-						linkmetasLength = linkMetas.length;
+					if(err) {
+						res.json(err);
+					} else {
+						CollectionUtility.addLinksToGroups(linkMetas, collection.groups);
 
-					for(i =0; i < linkmetasLength; i ++) {
+						
+						sails.log("finishedCollection");
 
-						sails.log(i);
-
-						for(j = 0; j < groupLength; j++) {
-							if(i === 0) {
-								collection.groups[j]["ownedLinks"]= [];
-								collection.groups[j].links = [];
-								sails.log("new links array");
-							}	
-
-							if(collection.groups[j].id === linkMetas[i].memberOf) {
-								sails.log("adding linkMeta to collection.group");
-								collection.groups[j].links.push(linkMetas[i]);
-								sails.log("new links added");
-							}
-
-						}
-
+						sails.log(collection);
+						collection.toJSON = undefined;//this will stop waterline's `toJSON` from being called
+						sails.log("after toJson override++++++++");
+						sails.log(collection);
+						res.json(collection);
 					}
 
-					sails.log("finishedCollection");
-
-					sails.log(collection);
-					collection.toJSON = undefined;//this will stop waterline's `toJSON` from being called
-					sails.log("after toJson override++++++++");
-					sails.log(collection);
-					res.json(collection);
+					
 				});
 
 				

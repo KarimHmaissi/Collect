@@ -7,6 +7,8 @@ var LinkMeta = {
 		description: {type: "string", defaultsTo: ""},
 		// group: {type: "string", defaultsTo: "misc"},
 
+		moderated: {type: "boolean", defaultsTo: true},
+
 		linkUrl: {
 			model: "linkUrl"
 		},

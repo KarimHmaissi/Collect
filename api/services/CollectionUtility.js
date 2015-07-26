@@ -64,6 +64,37 @@ var validateNewCollection = function (collection) {
 	
 };
 
+
+
+/* Adss links to appropiate group */
+var addLinksToGroups = function (linkMetas, groups) {
+	var i,j,
+		groupLength = groups.length,
+		linkmetasLength = linkMetas.length;
+
+	for(i =0; i < linkmetasLength; i ++) {
+
+		sails.log(i);
+
+		for(j = 0; j < groupLength; j++) {
+			if(i === 0) {
+				groups[j]["ownedLinks"]= [];
+				groups[j].links = [];
+				sails.log("new links array");
+			}	
+
+			if(groups[j].id === linkMetas[i].memberOf) {
+				sails.log("adding linkMeta to collection.group");
+				groups[j].links.push(linkMetas[i]);
+				sails.log("new links added");
+			}
+
+		}
+
+	}
+
+};
+
 // stubbed
 var validateGroup = function (group) {
 	
@@ -74,5 +105,6 @@ var validateGroup = function (group) {
 module.exports = {
 	testProperty: testProperty,
 	validateNewCollection: validateNewCollection,
-	validateGroup: validateGroup
+	validateGroup: validateGroup,
+	addLinksToGroups: addLinksToGroups
 }

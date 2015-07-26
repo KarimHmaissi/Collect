@@ -30,7 +30,7 @@
 
  		//verify incoming json
  		if(!CollectionUtility.validateGroup(group)) {
- 			sails.log("error validating group or no session");
+ 			sails.log("error validating group");
  			res.json({err: "Error adding link"});
  		} else {
 	 		//if collection id is valid
@@ -58,7 +58,7 @@
 	 				if(groups.length > 0) {
 	 					// group exists
 	 					// groups[0].ownedLinks = groups[0].ownedLinks.concat(group.ownedLinks);
-
+	 					group.ownedLinks[0].moderated = false;
 	 					groups[0].ownedLinks.add(group.ownedLinks[0]);
 
 	 					//test if link exists?
