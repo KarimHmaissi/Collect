@@ -80,11 +80,11 @@
 	 				} else {
 	 					//group does not exist
 	 					Group.create(group).exec(function (err, savedGroup) {
-	 						if(!err) {
-	 							sails.log("created new group");
+	 						if(err) {
+	 							sails.log("error creating new group");
 	 							res.json(err);
 	 						} else {
-	 							sails.log("eroor creating new group");
+	 							sails.log("creating new group");
 	 							res.json(savedGroup);
 	 						}
 	 						
