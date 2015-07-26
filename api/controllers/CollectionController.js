@@ -45,22 +45,20 @@ module.exports = {
 				LinkMeta.find({memberOf: _.pluck(collection.groups, "id")})
 				.where({moderated: true})
 				.populate("linkUrl")
-				.then(function (err, linkMetas) {
+				.then(function (linkMetas) {
 
-					if(err) {
-						res.json(err);
-					} else {
-						CollectionUtility.addLinksToGroups(linkMetas, collection.groups);
+			
+					CollectionUtility.addLinksToGroups(linkMetas, collection.groups);
 
-						
-						sails.log("finishedCollection");
+					
+					sails.log("finishedCollection");
 
-						sails.log(collection);
-						collection.toJSON = undefined;//this will stop waterline's `toJSON` from being called
-						sails.log("after toJson override++++++++");
-						sails.log(collection);
-						res.json(collection);
-					}
+					sails.log(collection);
+					collection.toJSON = undefined;//this will stop waterline's `toJSON` from being called
+					sails.log("after toJson override++++++++");
+					sails.log(collection);
+					res.json(collection);
+					
 
 					
 				});
