@@ -53,6 +53,7 @@
 	 		var addLinkToGroup = function () {
 
 	 			var groupTestHandler = function (groups) {
+
 	 				//if group exists in collection
 	 				if(groups.length > 0) {
 	 					// group exists
