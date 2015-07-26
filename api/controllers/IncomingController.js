@@ -8,6 +8,9 @@ module.exports = {
 
 
 	get: function (req, res) {
+
+
+		sails.log("hit incoming/get");
 		
 		if(typeof req.params.all().id === "string") {
 
