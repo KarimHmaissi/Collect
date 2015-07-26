@@ -17,7 +17,7 @@ module.exports = {
 			var id = req.params.all().id;
 
 			Collection.findOne().where({id: id}).populate("groups")
-			.then(function (err, collection) {
+			.then(function (collection, err) {
 
 				if(err) {
 					res.json(err);
