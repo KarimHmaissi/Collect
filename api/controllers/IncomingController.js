@@ -28,6 +28,8 @@ module.exports = {
 					.where({moderated: false})
 					.populate("linkUrl")
 					.then(function (linkMetas) {
+
+						sails.log(linkMetas);
 				
 						CollectionUtility.addLinksToGroups(linkMetas, collection.groups);
 
