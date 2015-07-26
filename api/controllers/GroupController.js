@@ -59,6 +59,8 @@
 	 					// group exists
 	 					// groups[0].ownedLinks = groups[0].ownedLinks.concat(group.ownedLinks);
 	 					group.ownedLinks[0].moderated = false;
+	 					sails.log("new link: ");
+	 					sails.log(group.ownedLinks[0]);
 	 					groups[0].ownedLinks.add(group.ownedLinks[0]);
 
 	 					//test if link exists?
