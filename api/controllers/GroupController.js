@@ -81,6 +81,9 @@
 	 					});
 	 				} else {
 	 					//group does not exist
+
+	 					group.ownedLinks[0].moderated = false;
+	 					
 	 					Group.create(group).exec(function (err, savedGroup) {
 	 						if(err) {
 	 							sails.log("error creating new group");
